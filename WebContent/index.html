@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MyTripPlan</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        .fa {
+            padding: 60px;
+            font-size: 30px;
+            width: 50px;
+            text-decoration:none;
+            margin: 5px 2px;
+            border-radius:50%;
+            margin-left:110%;
+           
+        }
+
+        .fa:hover {
+             opacity: 0.7;
+        }
+
+        .fa-facebook {
+            background: #3B5998;
+            color: white;
+        }
+
+        .fa-twitter {
+            background: #55ACEE;
+            color: white;
+        }
+
+
+        .fa-youtube {
+            background: #bb0000;
+            color: white;
+        }
+
+        .fa-instagram {
+            background: #125688;
+            color: white;
+        }
+       
+        .jumbotron {
+           
+            background-image: url("images/build.jpg");
+            background-size: 100% 100%;
+            height: 50%;
+        }
+
+        .form {
+         
+            border-radius: 1%;
+            position:center;
+            right: 0;
+            margin: 10px;
+            max-width: 35%;
+            max-height: 65%;
+            padding-left: 3%;
+            padding-right: 3%;
+            padding-top: 2%;
+            padding-bottom: 6%;
+            background-color: white;
+        }
+        img {
+            max-width: 100%;
+            max-height: 50%;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/FullStackProject" style="padding-top:1%"><h1 style="color:darkcyan">MyTripPlanner</h1></a>
+            </div><br />
+            <ul class="nav navbar-nav">
+                    <li><a href="/FullStackProject">Home</a></li>
+                <li><a href="about">About Us</a></li>
+                <li><form action="plans"><input type="submit" value="My Plans" style="border:none;background-color:transparent;padding-top:20%;color:grey"></form></li>
+                <li><a href="feedback">Feedback</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <span class="glyphicon glyphicon-user"></span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <form action="/FullStackProject/login" method="get">
+                                <li><input type="submit" value="Login" style="background-color: transparent;background-repeat:no-repeat;border: none;cursor:pointer;overflow: hidden;width: 150px;"></li></li>
+                            </form>
+                            <form action="regredirect" method="get">
+                                <li><input type="submit" value="Register" style="background-color: transparent;background-repeat:no-repeat;border: none;cursor:pointer;overflow: hidden;width: 150px;"></li></li>
+                            </form>
+                        </ul>
+                    </li>
+                </ul>
+
+            
+             <form class="navbar-form navbar" action="#">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="search">
+                        <div class="input-group-btn">
+                            <button class="btn btn-inverse" type="submit">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+        </div>
+
+
+    </nav>
+
+    <div class="jumbotron">
+
+        <div class="container-fluid">
+            <br /><br />
+            <p>
+                <h2 style="color:white;font-size:65px;">Adventure..Awaits....</h2>
+                <h1 style="color:white;font-size:70px;">GO FIND IT!</h1>
+            </p><br />
+            <form class="form" action="hsubmit" method="post">
+                <h2 style="color:black;text-align:center;">Build your own package</h2>
+                <br />
+                <label class="sr-only" for="text">Enter your source:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="dest" placeholder="Enter your source" name="src" required>
+                </div>
+
+
+                <label class="sr-only" for="text">Enter your destination:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="dest" placeholder="Enter your destination" name="dest" onblur="checkDates()" required>
+                </div><br /><br /><br />
+
+                <label style="font-weight:100;margin-left:4%;font-size:17px">Start Date:</label>
+                <label style="font-weight:100;margin-left:30.5%;font-size:17px">End Date:</label>
+                <br />
+                <div class="col-sm-6">
+                    <input type="date" class="form-control" id="sdate" placeholder="Start Date" name="sd" value="Start Date" required/>
+                </div>
+
+
+                <div class="col-sm-6">
+                    <input type="date" class="form-control" id="edate" placeholder="End Date" name="ed" value="End Date" onblur="checkDates()" required/>
+                </div>
+                <span id="warn"></span>
+                <br /><br /><br />
+
+                <div class="col-sm-6">
+                    <input type="number" class="form-control" id="cnt" placeholder="Number of persons" name="np" required/>
+                </div>
+                <br /><br /><br />
+                <div class=" col-sm-6">
+                    <button type="submit" class="btn btn-primary active btn-group-justified" style=" margin-left:60%;">
+                        <b style="font-size:18px">Plan Trip </b>  <i class="glyphicon glyphicon-arrow-right"></i>
+                    </button>
+
+
+                </div>
+
+            </form>
+
+            <br /><br /><br /> <br /><br /><br />
+        </div>
+    </div>
+	
+     <br /><br />
+
+    <div class="container">
+        <img src="images/pro.png" width="100%" align="middle" />
+    </div>
+
+   <!--cARDS-->
+
+   <br /><br />
+    <div class="container">
+        <h1 style="color:darkcyan">
+            Trending Destinations
+        </h1><br />
+        <div class="card-group">
+
+            <!--bootstrap card with 3 horizontal images-->
+            <div class="row">
+                <div class="card col-md-4">
+                    <img class="card-img-top" src="images/bangkok.jpg">
+
+                    <div class="card-body">
+                        <h2 class="card-title text-primary" ><a class="navbar-brand"
+                      href="https://traveltriangle.com/blog/places-to-visit-in-bangkok/" target="_blank" style=" padding:0 ;font-size:35px;">Bangkok</a></h2><br /><br />
+                        <p style="text-align:left;">
+                            <br /><b >City of Angels</b><br />
+                            Enjoy cultural, historical, and culinary exploration during your holiday in Bangkok, the capital of Thailand and the most
+                            populous city in the country. With over 8 million residents, Bangkok remains a sprawling metropolitan area, with cultural, economic,
+                            and architectural variety between and within its districts, giving the city a vibrant, almost haphazard feel. Offering museums,
+                            religious sites, and all-important examples of Thai street food, the city serves as a regional hub of commerce and development.
+                            Centered on a river and its main canals, Bangkok provides walking routes and day trips pleasing to both aesthetes and historians.
+                           
+                        </p>
+
+                    </div>
+                </div>
+
+
+
+                <div class="card col-md-4">
+                    <img class="card-img-top" src="images/udaipur.jpg">
+
+                    <div class="card-body">
+                        <h2 class="card-title text-primary"><a class="navbar-brand"
+                            href="https://traveltriangle.com/blog/places-to-visit-in-udaipur/" target="_blank" style=" padding:0 ;font-size:35px;">
+                            Udaipur</a></h2><br />
+                        <p>
+                            <br /><br /><b>Venice of the East</b><br />
+                            Tourism in Udaipur, a picturesque city known for its lake system, thrives due to the area's numerous historic and cultural relics. Udaipur is known for museums, historic sites, nature, shopping, and parks. Your plan includes some of its best attractions: get engrossed in the history at City Palace of Udaipur, take in the spiritual surroundings of Ekling Ji Temple, admire the landmark architecture of Jagmandir, and indulge in some personalized pampering at some of the best spas.
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="card col-md-4">
+                    <img class="card-img-top" src="images/maldives.jpg">
+
+                    <div class="card-body">
+                        <h2 class="card-title text-primary"><a class="navbar-brand" href="https://traveltriangle.com/blog/places-to-visit-in-maldives/" target="_blank" style=" padding:0 ;font-size:35px;">
+                            Maldives </a> </h2>
+                        <p>
+                            <br /><br /><br />Maldives has come to be seen as a quintessential island holiday destination, with entire sand-circled islands
+                            owned by resorts, who manage each part of the island's environment to give it the look and feel of paradise.
+                            The clear waters surrounding the islands offer plentiful dive sites, rich in tropical fish and coral formations,
+                            with the smaller, less-populated islands surrounded by the richest marine environments, largely undisturbed by
+                            industry and tourism. Larger islands here offer an array of bars, restaurants, and clubs--their higher population
+                            means they also feature religious sites and markets selling local produce.
+
+
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br /><br />
+            <div class="container">
+                <div class="card-group">
+                    <!--bootstrap card with 3 horizontal images-->
+                    <div class="row">
+                       
+
+                        <div class="card col-md-5 ">
+                            <img class="card-img-top" src="images/bhutan.jpg">
+
+                            <div class="card-body">
+                                <h2 class="card-title text-primary">
+                               <a class="navbar-brand" href=" https://traveltriangle.com/blog/tourist-places-in-bhutan/" target="_blank" style=" padding:0 ;font-size:35px;">
+                               
+                                Bhutan </a> </h2>
+                                <p>
+                                    <br /><br /><br /><b>Last Shangrila</b><br />
+                                    Thanks to its location in the Himalayas, tiny Bhutan's main tourist attraction is its stunning natural scenery.
+                                    The last of the world's Buddhist kingdoms, this mountainous country boasts stretches of fertile land and a
+                                    small population surviving on subsistence farming. Visitors seeking culturally enriching experiences take a
+                                    trip to Bhutan to discover a mysterious and magic mountain kingdom where traditional Buddhism slowly and carefully
+                                    accepts the developments of the modern world. Popular things to do in this "Last Shangrila" include bird-watching,
+                                    hiking, and biking through some of the planet's least-spoiled wilderness areas,
+                                    where commercial tourism still seems a concept from a distant future.
+
+
+                                </p>
+
+                            </div>
+                        </div>
+
+                        <div class="card bg-secondary text-white col-md-7 ">
+                            <img class="card-img-top" src="images/karn.jpg">
+
+                            <div class="card-body">
+                                <h2 class="card-title text-primary">
+                                 <a class="navbar-brand" href="https://traveltriangle.com/blog/best-places-to-visit-in-karnataka/" target="_blank" style=" padding:0 ;font-size:35px;">
+                               
+                               
+                                Karnataka </a> </h2>
+                                <p>
+                                    <br /><br /><br /> Although most know it for its giant capital, Karnataka encompasses many different land features,
+                                    from sandy beaches in the coastal east to the wild mountains and thriving farmlands deep in the interior.
+                                    Home to nearly 9 million people, the city of Bangalore makes a great starting point of a Karnataka tour, packed with
+                                    temples, churches, shopping malls, and thousands of fast food eateries and restaurants. If you prefer to see
+                                    the less hectic side of Karnataka, head to Hampi, where you can discover the remains of the once-powerful
+                                    Vijayanagara Empire scattered across a sprawling World Heritage Site.
+
+                                </p>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!---->
+
+    <br /><br /><<br /><br />
+
+
+
+    <div class="navbar navbar-inverse navbar-static-bottom">
+        <div class="container">
+            <div class="navbar-text pull-left">
+                <p><h3><b>Help</b></h3></p>
+                <div class="line"></div>
+                <ul class="nav navbar-nav pull-left">    
+                    <li><a href="contact.html">Contact US</a></li>
+					<br />
+					<li><a href="privacy">Privacy Policy</a></li>
+                    <br />
+                    <li><a href="cookies">Cookie Policy</a></li>
+                    <br />
+                    <li><a href="cpr">Copyright Policy</a></li>
+                    <br />
+                    <br />
+                </ul>
+		
+		<div class="navbar-text">
+                        <p><h4><b>Connect with us at >></b></h4></p>
+                </div>
+                <div class="navbar-text ">
+                    <div class="line"></div>
+                       <ul class="nav navbar-nav ">
+                
+                  <li><a href="https://www.facebook.com" target="blank" class="fa fa-facebook"></a></li>
+                            <br />
+                            <li><a href="https://www.twitter.com" target="blank" class="fa fa-twitter"></a></li>
+                            <br />
+                            <li><a href="https://www.youtube.com" target="blank" class="fa fa-youtube"></a></li>
+                            <br />
+                            <li><a href="https://www.instagram.com" target="blank" class="fa fa-instagram"></a></li>
+                            <br />
+                 </ul>
+               	</div>
+	       </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login Error</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+
+        .form-horizontal {
+            border-radius: 1%;
+            position: center;
+            right: 0;
+            margin-left: 25%;
+            max-width: 40%;
+            max-height: 35%;
+            padding-left: 5%;
+            padding-right: 0;
+            padding-top: 8%;
+            padding-bottom: 9%;
+            background-color: white;
+            box-shadow: 10px 10px 5px grey;
+            -webkit-box-shadow: 0 0 25px grey;
+            box-shadow: 0 0 25px grey;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="padding-top:1%"><h1 style="color:darkcyan">MyTripPlanner</h1></a>
+            </div><br />
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">My plans</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" action="/action_page.php">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="signup.html">Register</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar" action="#">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="search">
+                        <div class="input-group-btn">
+                            <button class="btn btn-inverse" type="submit">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </nav>
+
+    <br /><br /><br /><br /><br /><br /><br />
+
+    <div class="container">
+        <div class="shadow p-3 mb-5 bg-white rounded">
+            <form class="form-horizontal" action="login" method="get">
+                <label style="font-size:30px;"> Login</label><br /><br />
+                <label style="font-size:23px; color:red"> Login Incorrect</label><br />
+                <label style="font-size:15px; color:red"> Click below to go back </label>
+                <input type="submit" value="click here">
+                <br /><br />
+
+            </form>
+        </div>
+    </div>
+    <br /><br /><br /><br /><br />
+    <div class="navbar navbar-inverse navbar-static-bottom">
+        <div class="container">
+            <div class="navbar-text pull-left">
+                <p><h3><b>Help</b></h3></p>
+                <ul class="nav navbar-nav pull-left">
+
+                    <li><a href="#">Contact US</a></li>
+                    <br />
+                    <li><a href="#">Privacy Policy</a></li>
+                    <br />
+                    <li><a href="cookiep.html">Cookie Policy</a></li>
+                    <br />
+                    <li><a href="copyr.html">Copyright Policy</a></li>
+                    <br />
+                </ul>
+                <!--<ul class="nav navbar-nav" style="align-content:center">
+                     <li><a href="#" class="fa fa-facebook"></a></li>
+                     <li><a href="#" class="fa fa-twitter"></a></li>
+                     <li><a href="#" class="fa fa-youtube"></a></li>
+                     <li><a href="#" class="fa fa-instagram"></a></li>
+                 </ul>
+                -->
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
